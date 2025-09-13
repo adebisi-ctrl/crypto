@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 
-const HARD_CODED_BALANCE = 123489786.56;
+const HARD_CODED_BALANCE = 123489.56;
 
 const DEPOSIT_DETAILS = {
   amount: "1000 USDT",
