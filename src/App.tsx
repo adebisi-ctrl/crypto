@@ -38,7 +38,7 @@ function App() {
 }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-black via-[#070707] to-[#0b1116] text-white">
+    <div className="w-full min-h-screen flex flex-col bg-gradient-to-b from-black via-[#070707] to-[#0b1116] text-white">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center py-10 px-6">
         <motion.h1
